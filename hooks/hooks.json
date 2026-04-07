@@ -1,0 +1,17 @@
+{
+  "description": "Research Application Toolkit hooks",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "test -f \"${CLAUDE_PLUGIN_ROOT}/.local.md\" && grep -q 'cv_profile_analyzed: true' \"${CLAUDE_PLUGIN_ROOT}/.local.md\" && echo 'CV profile available via research-app-toolkit' || true",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
