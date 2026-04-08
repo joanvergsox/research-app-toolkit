@@ -21,7 +21,7 @@ A Claude Code plugin for research degree applications (PhD, MRes, MPhil). Provid
 
 ```bash
 # From GitHub
-git clone https://github.com/your-username/research-app-toolkit.git ~/.claude/plugins/local/research-app-toolkit
+git clone https://github.com/xujingchen1996/research-app-toolkit.git ~/.claude/plugins/local/research-app-toolkit
 ```
 
 2. Register in your local marketplace (`~/.claude/plugins/local/.claude-plugin/marketplace.json`):
@@ -33,7 +33,7 @@ git clone https://github.com/your-username/research-app-toolkit.git ~/.claude/pl
       "name": "research-app-toolkit",
       "description": "Research application toolkit for PhD, MRes, MPhil applications",
       "version": "0.1.0",
-      "author": { "name": "Your Name" },
+      "author": { "name": "Jingchen Xu" },
       "source": "./research-app-toolkit"
     }
   ]
