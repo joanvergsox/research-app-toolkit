@@ -1,4 +1,9 @@
-# Research Application Toolkit
+# 🎓 Research Application Toolkit
+
+[![Stars](https://img.shields.io/github/stars/xujingchen1996/research-app-toolkit?style=social)](https://github.com/xujingchen1996/research-app-toolkit/stargazers)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue)](https://github.com/xujingchen1996/research-app-toolkit/releases)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/CLADE_CODE-Plugin-purple)](https://claude.ai/code)
 
 A Claude Code plugin for research degree applications (PhD, MRes, MPhil). Provides an integrated workflow for CV analysis, professor matching, cold email optimization, document assistance, school selection, interview preparation, and research gap analysis.
 
