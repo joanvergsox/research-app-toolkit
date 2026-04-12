@@ -1,158 +1,116 @@
-# 🎓 Research Application Toolkit
+# Research Application Toolkit
 
 [![Stars](https://img.shields.io/github/stars/xujingchen1996/research-app-toolkit?style=social)](https://github.com/xujingchen1996/research-app-toolkit/stargazers)
-[![Version](https://img.shields.io/badge/version-0.1.0-blue)](https://github.com/xujingchen1996/research-app-toolkit/releases)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/CLADE_CODE-Plugin-purple)](https://claude.ai/code)
+[![Version](https://img.shields.io/badge/version-0.2.0-blue)](https://github.com/xujingchen1996/research-app-toolkit/releases)
+[![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-purple)](https://claude.ai/code)
+[![Codex](https://img.shields.io/badge/Codex-Plugin-teal)](https://openai.com)
 
-A Claude Code plugin for research degree applications (PhD, MRes, MPhil). Provides an integrated workflow for CV analysis, professor matching, cold email optimization, document assistance, school selection, interview preparation, and research gap analysis.
+Research Application Toolkit is a single repository that ships host-specific integrations for both Claude Code and Codex.
 
-## Features
+It covers:
 
-- **CV Analysis** — Extract structured capability profile from your CV for downstream use
-- **CV Polish** — Tailor and improve your CV for specific applications
-- **Professor Match** — Search professors, evaluate research fit, and get match scores
-- **Cold Email** — Generate personalized outreach emails (6 types: first-contact, follow-up, interview-thanks, offer-negotiation, reference-remind, rejection-follow)
-- **Document Assist** — Draft SOPs, motivation letters, research proposals, and recommendation letters
-- **School Selection** — Get tiered school recommendations (reach/match/safety) based on your profile
-- **Interview Prep** — Practice with mock questions based on your target professor's research
-- **Gap Analysis** — Discover research gaps and generate novel ideas from paper collections (supports local folders and Zotero)
+- CV analysis and profile extraction
+- CV refinement for target programs
+- Supervisor matching
+- Outreach and follow-up emails
+- SOP, personal statement, motivation letter, and proposal drafting
+- School selection
+- Interview preparation
+- Research gap analysis
 
-## Installation
+## Install
 
-### Local Installation
-
-1. Clone or copy this plugin to your local plugins directory:
-
-```bash
-# From GitHub
-git clone https://github.com/xujingchen1996/research-app-toolkit.git ~/.claude/plugins/local/research-app-toolkit
-```
-
-2. Register in your local marketplace (`~/.claude/plugins/local/.claude-plugin/marketplace.json`):
-
-```json
-{
-  "plugins": [
-    {
-      "name": "research-app-toolkit",
-      "description": "Research application toolkit for PhD, MRes, MPhil applications",
-      "version": "0.1.0",
-      "author": { "name": "Jingchen Xu" },
-      "source": "./research-app-toolkit"
-    }
-  ]
-}
-```
-
-3. Restart Claude Code to load the plugin.
-
-### From Claude Code Marketplace
-
-```
-/install research-app-toolkit
-```
-
-## Quick Start
+### Recommended: npm CLI
 
 ```bash
-# Step 1: Analyze your CV (required first step)
+npm install -g @xujingchen1996/research-app-toolkit
+ratk install
+```
+
+Optional host selection:
+
+```bash
+ratk install --claude
+ratk install --codex
+ratk install --all
+```
+
+Default behavior:
+
+- `ratk install` installs to the hosts detected on the current machine
+- `ratk install --claude` installs only the Claude Code plugin
+- `ratk install --codex` installs only the Codex plugin
+- `ratk install --all` installs to every detected host and skips hosts that are not installed
+
+You can also run the installer without a global install:
+
+```bash
+npx @xujingchen1996/research-app-toolkit install
+```
+
+## Usage
+
+### Claude Code
+
+After installation into Claude Code, use the slash commands:
+
+```bash
 /ra:cv-analyze
-/ra:cv-analyze /path/to/your/CV.pdf
-
-# Step 2: Use other features
-/ra:cold-email first-contact          # Generate a cold email to a professor
-/ra:professor-match HKBU HCI         # Search professors at HKBU in HCI
-/ra:doc-assist sop                   # Draft a Statement of Purpose
-/ra:school-select Australia AI        # Get school recommendations
-/ra:interview-prep "Hui Ye" HKBU     # Prepare for an interview
-/ra:gap-analysis ./papers/            # Analyze papers for research gaps
-/ra:cv-polish                         # Polish your CV
+/ra:cv-polish
+/ra:professor-match
+/ra:cold-email
+/ra:doc-assist
+/ra:school-select
+/ra:interview-prep
+/ra:gap-analysis
 ```
 
-## Commands
+### Codex
 
-| Command | Description | Arguments |
-|---------|-------------|-----------|
-| `/ra:cv-analyze` | Analyze CV and generate structured profile | `[cv-file-path]` |
-| `/ra:cv-polish` | Polish and improve CV | `[target-school-or-position]` |
-| `/ra:professor-match` | Search and match professors | `[school] [field]` |
-| `/ra:cold-email` | Generate outreach emails | `[type] [professor-info]` |
-| `/ra:doc-assist` | Assist with application documents | `[sop\|motivation\|rp\|referee]` |
-| `/ra:school-select` | Recommend and compare schools | `[region] [field]` |
-| `/ra:interview-prep` | Prepare for interviews with mock Q&A | `[professor-name] [university]` |
-| `/ra:gap-analysis` | Analyze papers for research gaps | `[folder-path]` |
+After installation into Codex, use the plugin in chat with prompts such as:
 
-### Email Types (cold-email)
-
-| Type | Purpose |
-|------|---------|
-| `first-contact` | Initial outreach to a professor |
-| `follow-up` | Follow up after no response |
-| `interview-thanks` | Thank you after interview |
-| `offer-negotiation` | Admission communication |
-| `reference-remind` | Reminder to referees |
-| `rejection-follow` | Inquiry after rejection |
-
-## Configuration
-
-The plugin uses a `.local.md` file for persistent user preferences. On first use, configuration is guided interactively.
-
-### Configuration Fields
-
-| Field | Description | Default |
-|-------|-------------|---------|
-| `research_interests` | Target research areas | `[]` |
-| `target_regions` | Preferred countries/regions | `[]` |
-| `target_schools` | Schools of interest | `[]` |
-| `target_degree` | Degree type | `PhD` |
-| `language_scores` | IELTS/TOEFL scores | `null` |
-| `email_tone` | Email style preference | `professional` |
-| `preferred_language` | Output language | `zh` |
-
-## Personalization
-
-Skills that support personalization (`cv-polish`, `professor-match`, `cold-email`, `school-select`, `gap-analysis`) will ask whether you want personalized customization before proceeding:
-
-- **Yes** — Answer 4-5 targeted questions for tailored results
-- **No** — Use existing configuration for standard results
-
-## Directory Structure
-
+```text
+Analyze my CV and extract a research application profile
+Match supervisors and schools for my target research area
+Draft a bilingual outreach email to a potential supervisor
 ```
+
+The Codex host keeps its own `codex/memory.md` state and supports `zh`, `en`, and `bilingual` output modes.
+
+## Repository Layout
+
+```text
 research-app-toolkit/
-├── .claude-plugin/
-│   └── plugin.json
-├── .local.md                          # User configuration template
-├── commands/                          # Slash commands
-│   ├── cv-analyze.md
-│   ├── cv-polish.md
-│   ├── professor-match.md
-│   ├── cold-email.md
-│   ├── doc-assist.md
-│   ├── school-select.md
-│   ├── interview-prep.md
-│   └── gap-analysis.md
-├── skills/                            # Auto-activating skills
-│   ├── cv-analyze/SKILL.md
-│   ├── cv-polish/SKILL.md
-│   ├── professor-match/SKILL.md
-│   ├── cold-email/SKILL.md
-│   ├── document-assist/SKILL.md
-│   ├── school-select/SKILL.md
-│   ├── interview-prep/SKILL.md
-│   └── gap-analysis/SKILL.md
-├── agents/                            # Subagents
-│   └── paper-reader.md
-├── hooks/
-│   └── hooks.json
+├── .claude-plugin/                  # Claude Code manifest
+├── .codex-plugin/                   # Codex manifest
+├── .local.md                        # Claude Code shared state template
+├── assets/                          # Shared assets such as the Codex icon
+├── commands/                        # Claude Code slash commands
+├── hooks/                           # Claude Code hooks
+├── agents/                          # Claude Code helper agents
+├── skills/                          # Claude Code skills
+├── codex/
+│   ├── memory.md                    # Codex shared state
+│   └── skills/                      # Codex skills and bundle manifest
+├── bin/                             # npm CLI entrypoint
+├── lib/                             # Installer helpers
+├── test/                            # Installer tests
+├── package.json
 └── README.md
 ```
 
-## Requirements
+## Development Notes
 
-- Claude Code CLI
-- (Optional) Zotero with MCP integration for paper management in gap-analysis
+- Claude Code and Codex skills are intentionally maintained separately to avoid host-specific prompt interference.
+- Shared installation is handled by the `ratk` CLI rather than host auto-discovery from a cloned repository.
+- Local host state such as `~/.claude`, `~/.codex`, `~/.agents`, and Codex caches should not be committed to this repository.
+
+## Test
+
+```bash
+npm test
+```
 
 ## License
 

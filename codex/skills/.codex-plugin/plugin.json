@@ -1,0 +1,44 @@
+{
+  "name": "research-app-toolkit",
+  "version": "0.2.0",
+  "description": "Bilingual research application toolkit skill bundle for Codex",
+  "author": {
+    "name": "Jingchen Xu"
+  },
+  "homepage": "https://github.com/xujingchen1996/research-app-toolkit",
+  "repository": "https://github.com/xujingchen1996/research-app-toolkit",
+  "license": "MIT",
+  "keywords": [
+    "phd",
+    "mres",
+    "mphil",
+    "research-application",
+    "cv",
+    "professor-match",
+    "cold-email",
+    "school-selection"
+  ],
+  "skills": "./_bundle/",
+  "interface": {
+    "displayName": "Research Application Toolkit",
+    "shortDescription": "Research application skill bundle with Chinese, English, and bilingual runtime support",
+    "longDescription": "A Codex skill bundle for research degree applications across PhD, MRes, and MPhil workflows, covering CV analysis, outreach, school selection, application documents, interview preparation, and research gap analysis under a shared bilingual runtime policy.",
+    "developerName": "Jingchen Xu",
+    "category": "Research",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/xujingchen1996/research-app-toolkit",
+    "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "defaultPrompt": [
+      "Analyze my CV and extract an application profile",
+      "Match supervisors and schools",
+      "Draft a bilingual outreach email"
+    ],
+    "brandColor": "#0F766E",
+    "screenshots": []
+  }
+}

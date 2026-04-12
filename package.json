@@ -1,0 +1,52 @@
+{
+  "name": "@xujingchen1996/research-app-toolkit",
+  "version": "0.2.0",
+  "description": "Research application toolkit for Claude Code and Codex with a unified installer CLI",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://github.com/xujingchen1996/research-app-toolkit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xujingchen1996/research-app-toolkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xujingchen1996/research-app-toolkit/issues"
+  },
+  "author": "Jingchen Xu",
+  "bin": {
+    "ratk": "bin/ratk.js"
+  },
+  "files": [
+    ".claude-plugin",
+    ".codex-plugin",
+    ".local.md",
+    "LICENSE",
+    "README.md",
+    "agents",
+    "assets",
+    "bin",
+    "codex",
+    "commands",
+    "hooks",
+    "lib",
+    "skills"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "claude-code",
+    "codex",
+    "phd",
+    "mres",
+    "mphil",
+    "research-application",
+    "cv",
+    "cold-email",
+    "professor-match",
+    "interview-prep"
+  ]
+}
