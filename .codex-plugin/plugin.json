@@ -1,6 +1,6 @@
 {
   "name": "research-app-toolkit",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Bilingual research application toolkit for PhD, MRes, and MPhil applications in Codex",
   "author": {
     "name": "Jingchen Xu"
@@ -27,7 +27,7 @@
   "interface": {
     "displayName": "Research Application Toolkit",
     "shortDescription": "Bilingual research application toolkit with Chinese, English, and bilingual output modes",
-    "longDescription": "A local Codex plugin for research degree applications such as PhD, MRes, and MPhil. It provides CV profile analysis, CV refinement, supervisor matching, outreach emails, application documents, school selection, interview preparation, and research gap analysis, while reusing shared application context through a Codex-specific memory file. The plugin supports Chinese, English, and bilingual output preferences at runtime.",
+    "longDescription": "A local Codex plugin for research degree applications such as PhD, MRes, and MPhil. It provides CV profile analysis, CV refinement, supervisor matching, outreach emails, application documents, school selection, interview preparation, interview PPT support, and research gap analysis, while reusing shared application context through a Codex-specific memory file. The plugin supports Chinese, English, and bilingual output preferences at runtime.",
     "developerName": "Jingchen Xu",
     "category": "Research",
     "capabilities": [

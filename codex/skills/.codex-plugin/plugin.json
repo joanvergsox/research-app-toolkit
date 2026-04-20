@@ -1,6 +1,6 @@
 {
   "name": "research-app-toolkit",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Bilingual research application toolkit skill bundle for Codex",
   "author": {
     "name": "Jingchen Xu"
@@ -24,7 +24,7 @@
   "interface": {
     "displayName": "Research Application Toolkit",
     "shortDescription": "Research application skill bundle with Chinese, English, and bilingual runtime support",
-    "longDescription": "A Codex skill bundle for research degree applications across PhD, MRes, and MPhil workflows, covering CV analysis, outreach, school selection, application documents, interview preparation, and research gap analysis under a shared bilingual runtime policy.",
+    "longDescription": "A Codex skill bundle for research degree applications across PhD, MRes, and MPhil workflows, covering CV analysis, outreach, school selection, application documents, interview preparation, interview PPT support, and research gap analysis under a shared bilingual runtime policy.",
     "developerName": "Jingchen Xu",
     "category": "Research",
     "capabilities": [

@@ -1,7 +1,7 @@
 # Research Application Toolkit
 
 [![Stars](https://img.shields.io/github/stars/xujingchen1996/research-app-toolkit?style=social)](https://github.com/xujingchen1996/research-app-toolkit/stargazers)
-[![Version](https://img.shields.io/badge/version-0.2.1-blue)](https://github.com/xujingchen1996/research-app-toolkit/releases)
+[![Version](https://img.shields.io/badge/version-0.2.2-blue)](https://github.com/xujingchen1996/research-app-toolkit/releases)
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-purple)](https://claude.ai/code)
 [![Codex](https://img.shields.io/badge/Codex-Plugin-teal)](https://openai.com)
