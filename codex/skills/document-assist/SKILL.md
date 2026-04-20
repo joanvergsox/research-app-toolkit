@@ -18,6 +18,20 @@ description: Use when the user asks to draft or revise an SOP, personal statemen
 - 若仍无法判断，则优先使用目标项目官方常用语言。
 - 若用户要求 bilingual，默认给出一个主稿语言版本，并附一份缩略对照版或提纲，不要把整篇文书逐段重复。
 
+## 可选联动：Life Science Research
+
+- 如果用户申请方向明显属于 life sciences / biomedical research，并且文书需要真实研究背景支撑，可先联动 `life-science-research` 再起草。
+- 特别适合以下文书任务：
+  - `research-proposal`
+  - 需要写清 `research fit`
+  - 需要写 future directions、problem significance、dataset / pathway / target context
+- 联动结果可用于：
+  - 补 research background
+  - 提炼更具体的 research question
+  - 组织 literature / dataset / target / disease context
+  - 避免文书只停留在空泛兴趣表述
+- 如果当前任务只是语言润色、压字数、改语气、改结构，且用户已经给了完整内容，则不要触发该联动。
+
 ## 识别文书类型
 
 若用户未说明，默认按 `sop` 处理。支持：

@@ -18,6 +18,19 @@ description: Use when the user asks to analyze research gaps, find research gaps
 - 若仍无法判断，则跟随用户当前对话语言。
 - 论文题名、方法名、会议名等学术专有名词可保留原文，分析与结论部分遵循选定语言。
 
+## 可选联动：Life Science Research
+
+- 如果用户的问题明显属于 life sciences / biomedical research，优先把 `life-science-research` 当成研究证据层，而把当前 skill 当成申请导向的综合层。
+- 特别适合联动的场景包括：
+  - 需要先梳理 gene / protein / disease / pathway / expression / clinical evidence
+  - 需要先找 public datasets、preprints、omics 资源，再谈 research gaps
+  - 需要把生物医学方向的公开证据转成可申请、可面试、可 proposal 的研究想法
+- 联动后，本 skill 负责：
+  - 汇总跨证据线索
+  - 结合 `memory.md` 评估 feasibility
+  - 把 research gaps 收敛成 3 到 5 个申请导向的 ideas
+- 如果用户已经给了明确论文集，且只想做局部 gap comparison，不需要额外背景扩展，则不要触发该联动。
+
 ## 先明确输入来源
 
 优先向用户确认论文来源：

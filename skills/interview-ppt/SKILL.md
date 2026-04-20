@@ -15,7 +15,7 @@ It focuses on:
 - slide-by-slide English content
 - short speaking notes
 - restructuring projects into interview-friendly logic
-- optional visual suggestions or image prompts
+- optional visual suggestions, image prompts, or direct image generation when explicitly requested
 
 It does **not** need to generate a `.pptx` file unless the user explicitly asks for file creation.
 
@@ -39,6 +39,30 @@ Identify the intended deck mode. If the user does not specify, infer from contex
 
 If uncertain, default to `formal-interview`.
 
+## 3.1 Visual generation mode
+
+Decide visual mode before writing the deck. Use this priority order:
+
+1. explicit switch in the current request or `$ARGUMENTS`
+2. explicit natural-language request to generate visuals
+3. default fallback
+
+Supported explicit switches:
+
+- `visuals:on`
+- `visuals:off`
+- `with-visuals`
+- `no-visuals`
+
+Rules:
+
+- If the user explicitly asks to "also generate the visuals", "make the figures too", "create images for the slides", or similar, set visual mode to `on`.
+- If the user explicitly disables visuals, set visual mode to `off` even if visuals are mentioned elsewhere.
+- If neither a switch nor a clear request is present, default to `off`.
+- When visual mode is `on`, use any image-generation capability available in the current host. If image generation is unavailable, fall back to image prompts plus layout guidance.
+- Reuse existing user-provided images, screenshots, charts, or diagrams before generating new ones.
+- Unless the user explicitly asks for visuals on every slide, generate visuals only for the 1 to 3 slides where they materially improve the presentation.
+
 ## 4. Standard Workflow
 
 ### 4.1 Build the deck strategy
@@ -49,6 +73,7 @@ First determine:
 - interview language
 - strongest 2 to 4 projects or experience blocks
 - whether the user needs only content, or content plus speaking notes
+- whether visual mode is `on` or `off`
 
 Then propose a compact deck structure. Prefer concise academic decks rather than CV-like slides.
 
@@ -101,11 +126,17 @@ Default speaking-note style:
 
 ### 4.5 Visual support
 
-If visuals are helpful, suggest one of:
+If visuals are helpful and visual mode is `off`, suggest one of:
 
 - what type of figure should appear on the slide
 - an image-generation prompt
 - a simple diagram structure
+
+If visual mode is `on`:
+
+- generate the image directly when the host provides image-generation capability
+- otherwise provide a clean image-generation prompt plus slide placement guidance
+- by default, prioritize high-value slides such as project explanation, system architecture, process flow, or research-fit transition
 
 For project visuals, prefer:
 
@@ -151,7 +182,7 @@ Prioritize high-value output in this order:
 1. deck outline
 2. final slide text
 3. speaking notes
-4. visual suggestions
+4. generated visuals when visual mode is `on`, otherwise visual suggestions
 
 When the user is already editing a deck, do not regenerate the whole presentation unless asked. Focus on the specific slide or section being revised.
 
@@ -162,3 +193,4 @@ When the user is already editing a deck, do not regenerate the whole presentatio
 - Do not fabricate publications, methods, datasets, results, or professor interests.
 - For current professor information, prefer live verification over memory.
 - Keep the deck interview-oriented rather than thesis-defense-oriented.
+- Do not generate decorative visuals that add style but no explanatory value.

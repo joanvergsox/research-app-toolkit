@@ -1,6 +1,6 @@
 ---
 name: interview-ppt
-description: 当用户要求制作 PhD 面试 PPT、导师面谈 slides、research presentation deck、逐页 speaking notes，或希望把项目材料重组为适合面谈的幻灯片时使用。该 skill 负责把 CV、项目文档与导师匹配信息组织成简洁的学术展示内容。
+description: 当用户要求制作 PhD 面试 PPT、导师面谈 slides、research presentation deck、逐页 speaking notes，或希望把项目材料重组为适合面谈的幻灯片时使用。该 skill 负责把 CV、项目文档与导师匹配信息组织成简洁的学术展示内容，并在用户明确要求时直接生成配图。
 ---
 
 # 面试 PPT 组织
@@ -18,6 +18,21 @@ description: 当用户要求制作 PhD 面试 PPT、导师面谈 slides、resear
 - 若未明确说明，则读取 `memory.md` 的 `preferred_language`。
 - 若输出为 bilingual，默认 slide content 仍以目标展示语言为主，不重复整套双语内容。
 
+## 可选联动：Life Science Research
+
+- 如果用户准备的是 life sciences / biomedical 方向的面试或导师面谈 PPT，并且需要更强的 scientific grounding，可先联动 `life-science-research`。
+- 特别适合联动的页面包括：
+  - Research Fit
+  - Why This Lab / Why This Professor
+  - Future Directions
+  - Problem Significance
+- 联动结果可以帮助补强：
+  - target / gene / disease / pathway 背景
+  - 当前公开证据与研究空白
+  - dataset / omics / clinical evidence context
+  - 从既有项目到未来研究方向的过渡
+- 如果用户只是想做通用表达优化、版式精简、逐页 speaking notes，且已有完整 slide 文案，则不要触发该联动。
+
 ## 先判断 deck mode
 
 根据场景判断并收敛 deck 类型：
@@ -27,6 +42,30 @@ description: 当用户要求制作 PhD 面试 PPT、导师面谈 slides、resear
 - `project-presentation`：重点讲 1 到 2 个项目
 
 若用户未指定，默认按 `formal-interview` 处理。
+
+## 视觉生成模式
+
+在开始组织 deck 前，先判断 visual mode。优先级如下：
+
+1. 当前请求中的显式开关
+2. 当前请求中的明确自然语言要求
+3. 默认回退值
+
+支持的显式开关：
+
+- `visuals:on`
+- `visuals:off`
+- `with-visuals`
+- `no-visuals`
+
+规则：
+
+- 如果用户明确说“顺便把图也生成”“把配图也做出来”“每页都出图”之类要求，则设为 `on`。
+- 如果用户明确关闭出图，则即使上下文提到 visual 也按 `off` 处理。
+- 如果没有显式开关，也没有明确要求，则默认 `off`。
+- 当 visual mode 为 `on` 时，若当前宿主提供 image generation / image-gen 能力，则直接调用出图；若当前宿主没有该能力，则退回为 image prompt 与布局建议。
+- 优先复用用户现有图片、截图、图表或项目素材，而不是无条件重生成。
+- 除非用户明确要求每页都出图，否则默认只为最有价值的 1 到 3 页自动生成图。
 
 ## 执行流程
 
@@ -38,6 +77,7 @@ description: 当用户要求制作 PhD 面试 PPT、导师面谈 slides、resear
 - 面试语言
 - 最强的 2 到 4 段项目或经历
 - 用户只要 slide content，还是还要 speaking notes / visuals
+- 当前 visual mode 是 `on` 还是 `off`
 
 输出时优先组织为高信息密度、低冗余的学术面谈结构，而不是简历翻页。
 
@@ -92,11 +132,17 @@ description: 当用户要求制作 PhD 面试 PPT、导师面谈 slides、resear
 
 ### 5. 生成视觉建议
 
-当页面需要图时，优先给：
+当页面需要图且 visual mode 为 `off` 时，优先给：
 
 - 适合的图类型
 - image generation prompt
 - 简单流程图 / 结构图建议
+
+当 visual mode 为 `on` 时：
+
+- 若宿主支持 image generation，则直接生成图片
+- 若宿主不支持，则输出可直接复用的 image prompt 与页面摆放建议
+- 默认优先处理项目讲解页、系统结构页、流程页和 research fit 过渡页
 
 项目页优先考虑：
 
@@ -139,7 +185,7 @@ description: 当用户要求制作 PhD 面试 PPT、导师面谈 slides、resear
 1. 整体 deck outline
 2. 最终 slide 文案
 3. speaking notes
-4. visual suggestions
+4. visual mode 为 `on` 时的已生成图片，否则为 visual suggestions
 
 如果用户已经有现成 PPT，优先只改指定页面，而不是整套重做。
 
@@ -150,3 +196,4 @@ description: 当用户要求制作 PhD 面试 PPT、导师面谈 slides、resear
 - 不要虚构论文、方法、结果、数据集或导师兴趣。
 - 涉及导师当前研究方向时，优先核对最新公开信息。
 - 整套 deck 应偏面谈展示，而不是论文答辩风格。
+- 不要为了“好看”生成与讲解逻辑无关的装饰性图片。

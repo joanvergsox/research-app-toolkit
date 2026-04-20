@@ -18,6 +18,19 @@ description: Use when the user asks to find supervisors, match professors, searc
 - 若仍无法判断，则跟随用户当前对话语言。
 - 导师主页、学校项目等检索资料可以保留原始英文专有名词，但解释文本应遵循选定输出语言。
 
+## 可选联动：Life Science Research
+
+- 如果用户的申请方向明显属于 life sciences / biomedical research，例如 genetics、functional genomics、immunology、neuroscience、cancer biology、cell biology、translational medicine 等，并且当前任务需要研究方向 grounding，再联动 `life-science-research`。
+- 适合联动的场景包括：
+  - 需要先厘清 target / gene / disease / pathway 背景
+  - 需要基于公开文献、数据集或近期研究脉络判断导师 fit
+  - 需要从研究问题空间出发，而不是只按关键词搜导师
+- 联动结果优先用于：
+  - 收敛研究关键词
+  - 判断导师近期工作与用户背景的自然桥接点
+  - 识别更具体的 research-fit 叙事
+- 如果用户只是想按学校 / 国家 /项目名做常规导师搜索，或只是更新排序，不要触发该联动。
+
 ## 先补足检索条件
 
 若用户请求不够具体，补齐以下最少信息：
