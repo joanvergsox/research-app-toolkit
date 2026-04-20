@@ -1,7 +1,7 @@
 # Research Application Toolkit
 
 [![Stars](https://img.shields.io/github/stars/xujingchen1996/research-app-toolkit?style=social)](https://github.com/xujingchen1996/research-app-toolkit/stargazers)
-[![Version](https://img.shields.io/badge/version-0.2.0-blue)](https://github.com/xujingchen1996/research-app-toolkit/releases)
+[![Version](https://img.shields.io/badge/version-0.2.1-blue)](https://github.com/xujingchen1996/research-app-toolkit/releases)
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-purple)](https://claude.ai/code)
 [![Codex](https://img.shields.io/badge/Codex-Plugin-teal)](https://openai.com)
@@ -17,6 +17,7 @@ It covers:
 - SOP, personal statement, motivation letter, and proposal drafting
 - School selection
 - Interview preparation
+- Interview PPT / professor meeting deck preparation
 - Research gap analysis
 
 ## Install
@@ -63,6 +64,7 @@ After installation into Claude Code, use the slash commands:
 /ra:doc-assist
 /ra:school-select
 /ra:interview-prep
+/ra:interview-ppt
 /ra:gap-analysis
 ```
 
@@ -74,6 +76,7 @@ After installation into Codex, use the plugin in chat with prompts such as:
 Analyze my CV and extract a research application profile
 Match supervisors and schools for my target research area
 Draft a bilingual outreach email to a potential supervisor
+Help me prepare a professor meeting or PhD interview PPT
 ```
 
 The Codex host keeps its own `codex/memory.md` state and supports `zh`, `en`, and `bilingual` output modes.

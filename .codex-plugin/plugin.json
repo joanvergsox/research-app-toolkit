@@ -1,6 +1,6 @@
 {
   "name": "research-app-toolkit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Bilingual research application toolkit for PhD, MRes, and MPhil applications in Codex",
   "author": {
     "name": "Jingchen Xu"
@@ -19,7 +19,9 @@
     "statement-of-purpose",
     "school-selection",
     "interview-prep",
-    "research-gap"
+    "research-gap",
+    "ppt",
+    "presentation"
   ],
   "skills": "./codex/skills/",
   "interface": {
@@ -39,7 +41,8 @@
     "defaultPrompt": [
       "Analyze my CV and extract a research application profile",
       "Match supervisors and schools for my target research area",
-      "Draft a bilingual outreach email to a potential supervisor"
+      "Draft a bilingual outreach email to a potential supervisor",
+      "Help me prepare a professor meeting or PhD interview PPT"
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/app-icon.svg",

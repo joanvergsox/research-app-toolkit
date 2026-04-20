@@ -1,6 +1,6 @@
 {
   "name": "research-app-toolkit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Bilingual research application toolkit skill bundle for Codex",
   "author": {
     "name": "Jingchen Xu"
@@ -16,7 +16,9 @@
     "cv",
     "professor-match",
     "cold-email",
-    "school-selection"
+    "school-selection",
+    "presentation",
+    "ppt"
   ],
   "skills": "./_bundle/",
   "interface": {
@@ -36,7 +38,8 @@
     "defaultPrompt": [
       "Analyze my CV and extract an application profile",
       "Match supervisors and schools",
-      "Draft a bilingual outreach email"
+      "Draft a bilingual outreach email",
+      "Prepare a PhD interview PPT"
     ],
     "brandColor": "#0F766E",
     "screenshots": []

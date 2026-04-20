@@ -1,6 +1,6 @@
 {
   "name": "@xujingchen1996/research-app-toolkit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Research application toolkit for Claude Code and Codex with a unified installer CLI",
   "license": "MIT",
   "type": "module",
@@ -47,6 +47,8 @@
     "cv",
     "cold-email",
     "professor-match",
-    "interview-prep"
+    "interview-prep",
+    "presentation",
+    "ppt"
   ]
 }
