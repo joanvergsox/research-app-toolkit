@@ -1,6 +1,6 @@
 {
   "name": "research-app-toolkit",
-  "version": "0.2.3",
+  "version": "0.2.3.2",
   "description": "Bilingual research application toolkit skill bundle for Codex",
   "author": {
     "name": "Jingchen Xu"
@@ -37,9 +37,8 @@
     "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
     "defaultPrompt": [
       "Analyze my CV and extract an application profile",
-      "Match supervisors and schools",
-      "Draft a bilingual outreach email",
-      "Prepare a PhD interview PPT"
+      "Match supervisors with research-fit reasoning",
+      "Prepare a biomedical PhD interview PPT with visuals:on"
     ],
     "brandColor": "#0F766E",
     "screenshots": []

@@ -1,6 +1,6 @@
 ---
 name: interview-ppt
-description: 当用户要求制作 PhD 面试 PPT、导师面谈 slides、research presentation deck、逐页 speaking notes，或希望把项目材料重组为适合面谈的幻灯片时使用。该 skill 负责把 CV、项目文档与导师匹配信息组织成简洁的学术展示内容，并在用户明确要求时直接生成配图。
+description: Use when the user asks to prepare a PhD interview deck, professor meeting slides, research presentation PPT, slide-by-slide speaking notes, or interview visuals. Structure CV, project files, and supervisor fit into an interview-ready academic deck, and generate visuals when explicitly requested.
 ---
 
 # 面试 PPT 组织

@@ -1,6 +1,6 @@
 {
   "name": "research-app-toolkit",
-  "version": "0.2.3",
+  "version": "0.2.3.2",
   "description": "Bilingual research application toolkit for PhD, MRes, and MPhil applications in Codex",
   "author": {
     "name": "Jingchen Xu"
@@ -40,9 +40,8 @@
     "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
     "defaultPrompt": [
       "Analyze my CV and extract a research application profile",
-      "Match supervisors and schools for my target research area",
-      "Draft a bilingual outreach email to a potential supervisor",
-      "Help me prepare a professor meeting or PhD interview PPT"
+      "Match supervisors for my target research area with research-fit reasoning",
+      "Help me prepare a biomedical PhD interview PPT with visuals:on and speaking notes"
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/app-icon.svg",
