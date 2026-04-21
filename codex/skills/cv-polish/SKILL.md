@@ -3,56 +3,56 @@ name: cv-polish
 description: Use when the user asks to polish a CV or resume, improve a CV, tailor a resume, or optimize a CV. Based on the shared application profile, suggest revisions or produce rewrites for structure, phrasing, and target-program fit.
 ---
 
-# CV 优化
+# CV Refinement
 
-## 前置检查
+## Preconditions
 
-- 先读取 `../../memory.md`。
-- 如果 `cv_profile_analyzed` 不是 `true`，或 `## CV Profile` 基本为空，先提示用户运行 `cv-analyze`，除非用户明确要求你直接从当前 CV 开始重建画像。
+- Read `../../memory.md` first.
+- If `cv_profile_analyzed` is not `true`, or `## CV Profile` is basically empty, first suggest that the user run `cv-analyze`, unless the user explicitly asks you to rebuild the profile directly from the current CV.
 
-## 语言规则
+## Language Rules
 
-- 支持 `zh`、`en`、`bilingual` 三种输出模式。
-- 若用户明确指定输出语言或目标 CV 语言，优先遵循用户指定。
-- 否则读取 `memory.md` 中的 `preferred_language`。
-- 若仍无法判断，则默认跟随用户当前对话语言。
-- 若用户要求 bilingual，优先输出主版本，并附简短对照说明，而不是把每一行都机械重复两次。
+- Support three output modes: `zh`, `en`, and `bilingual`.
+- If the user explicitly specifies the output language or target CV language, prioritize the user's specification.
+- Otherwise read `preferred_language` from `memory.md`.
+- If it is still unclear, default to following the user's current conversation language.
+- If the user requests bilingual output, prioritize one main version plus a short counterpart note, rather than mechanically repeating every line twice.
 
-## 先补足关键信息
+## Fill In the Key Information First
 
-如以下信息缺失，直接用简短中文问题补齐：
-- 目标项目 / 学校 / 学位
-- 想突出哪 1 到 2 段经历
-- 目标研究方向
-- 期望输出语言
+If any of the following is missing, ask concise questions in Chinese to fill it in:
+- target program / school / degree
+- which 1 to 2 experiences should be emphasized
+- target research direction
+- desired output language
 
-## 工作方式
+## Working Method
 
-1. 读取原始 CV：
-   - 优先使用 `memory.md` 中记录的 `cv_file_path`
-   - 若没有，再向用户确认路径
-2. 按以下维度审视：
-   - 结构顺序是否适合研究型申请
-   - bullet 是否动词清晰、结果明确
-   - 研究相关经历是否被放在足够靠前的位置
-   - 是否缺少研究申请常见要素，如 publications、research experience、methods、technical stack
-3. 结合目标项目做定向优化：
-   - 强化和目标方向最相关的经历
-   - 调整段落顺序
-   - 增加必要关键词，但不凭空添加经历
-4. 根据源文件类型决定交付方式：
-   - 若是文本源文件，可直接编辑
-   - 若是 PDF / DOCX 等不适合稳定直接改写的格式，默认给出逐段改写建议和可复制的新版本
+1. Read the original CV:
+   - Prefer the `cv_file_path` recorded in `memory.md`
+   - If it is missing, then confirm the path with the user
+2. Review it from the following dimensions:
+   - whether the structural order fits research-oriented applications
+   - whether the bullets use clear verbs and explicit outcomes
+   - whether research-related experience is placed early enough
+   - whether common research-application elements are missing, such as publications, research experience, methods, or technical stack
+3. Make targeted refinements based on the target program:
+   - strengthen the experiences most relevant to the target direction
+   - adjust section order
+   - add necessary keywords, but do not invent experiences
+4. Decide the delivery mode based on the source file type:
+   - if it is a text-based source file, it can be edited directly
+   - if it is a format such as PDF / DOCX that is not suitable for stable direct rewriting, default to section-by-section rewriting suggestions and a copyable new version
 
-## 输出要求
+## Output Requirements
 
-- 至少包含三部分：
-  - 主要问题清单
-  - 优化后版本或逐段改写建议
-  - 为什么这些修改更适合研究申请
+- Include at least three parts:
+  - the main issue list
+  - the refined version or section-by-section rewriting suggestions
+  - why these changes fit research applications better
 
-## 约束
+## Constraints
 
-- 不要把普通工业经历硬包装成虚假的研究经历。
-- 不要为了“好看”删除对申请判断有价值的硬信息。
-- 若用户给了明确 target，就按 target 优先，而不是做泛化简历优化。
+- Do not force ordinary industry experience into fake research experience.
+- Do not delete hard information that is valuable for application judgment just for appearance.
+- If the user has given a clear target, prioritize that target instead of doing generic CV optimization.

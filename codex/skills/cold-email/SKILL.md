@@ -3,24 +3,24 @@ name: cold-email
 description: Use when the user asks to write a cold email, draft an outreach email, follow up with a professor, or prepare other supervisor-facing application emails. Based on the shared application profile and target supervisor information, generate first-contact emails, follow-ups, interview thank-you notes, and offer-related communication.
 ---
 
-# 套磁邮件
+# Outreach Email
 
-## 前置检查
+## Preconditions
 
-- 先读取 `../../memory.md`。
-- 若 `cv_profile_analyzed` 未完成，先提示用户运行 `cv-analyze`，除非用户已经直接提供了足够完整的背景材料。
+- Read `../../memory.md` first.
+- If `cv_profile_analyzed` is not complete, first suggest that the user run `cv-analyze`, unless the user has already directly provided sufficiently complete background materials.
 
-## 语言规则
+## Language Rules
 
-- 支持 `zh`、`en`、`bilingual` 三种输出模式。
-- 若用户明确指定邮件语言，优先遵循当前请求。
-- 否则读取 `memory.md` 中的 `preferred_language`。
-- 若仍无法判断，则优先使用目标导师或目标项目常用语言。
-- 若用户要求 bilingual，默认输出一版主邮件正文，并附一版简洁对照稿，而不是把中英混在同一封邮件里。
+- Support three output modes: `zh`, `en`, and `bilingual`.
+- If the user explicitly specifies the email language, prioritize the current request.
+- Otherwise read `preferred_language` from `memory.md`.
+- If it is still unclear, prioritize the language commonly used by the target professor or target program.
+- If the user requests bilingual output, default to one main email body plus one concise counterpart version, rather than mixing Chinese and English in the same email.
 
-## 识别邮件类型
+## Identify the Email Type
 
-若用户未说明，默认按 `first-contact` 处理。支持：
+If the user does not specify it, default to `first-contact`. Supported types:
 - `first-contact`
 - `follow-up`
 - `interview-thanks`
@@ -28,40 +28,40 @@ description: Use when the user asks to write a cold email, draft an outreach ema
 - `reference-remind`
 - `rejection-follow`
 
-## 先补足关键上下文
+## Fill In the Key Context First
 
-如缺失，则直接询问：
-- 教授姓名与学校
-- 希望用中文还是英文
-- 最想强调的 1 到 2 段经历
-- 是否已有前序沟通
+If any of the following is missing, ask directly:
+- professor name and school
+- whether the user wants Chinese or English
+- the 1 to 2 experiences they most want to emphasize
+- whether there has already been prior communication
 
-## 写作流程
+## Writing Workflow
 
-1. 从 `memory.md` 抽取最相关背景。
-2. 用网页检索核对目标导师：
-   - 主页
-   - 研究方向
-   - 近期论文或项目
-3. 找出用户经历与导师研究之间最自然的 1 到 2 个连接点。
-4. 输出邮件草稿，并在必要时给出主题行备选。
+1. Extract the most relevant background from `memory.md`.
+2. Verify the target professor through web search:
+   - homepage
+   - research direction
+   - recent papers or projects
+3. Identify the 1 to 2 most natural connection points between the user's experience and the professor's research.
+4. Output the email draft, and provide subject-line alternatives when necessary.
 
-## 写作规则
+## Writing Rules
 
-- 首封套磁要短，不绕。
-- 必须包含具体研究连接，不能只是泛泛夸赞。
-- 不暴露无必要的弱点，如成绩焦虑或申请失败经历。
-- 英文邮件优先控制在约 250 到 300 词内。
-- 中文邮件优先控制在一屏可读范围内。
+- The first outreach email should be short and direct.
+- It must include specific research connections, not just generic praise.
+- Do not expose unnecessary weaknesses, such as grade anxiety or previous application failures.
+- For English emails, aim to keep them within about 250 to 300 words.
+- For Chinese emails, aim to keep them within one screen of readable length.
 
-## 输出要求
+## Output Requirements
 
-- 默认给出：
-  - 邮件主题 2 到 3 个候选
-  - 正文草稿
-  - 可替换的个性化句子位
+- By default provide:
+  - 2 to 3 candidate subject lines
+  - the draft email body
+  - replaceable personalization sentence slots
 
-## 约束
+## Constraints
 
-- 涉及导师最新研究方向时，以当前检索结果为准。
-- 不要虚构“读过对方某篇论文”这类事实，除非本轮确实已核对。
+- When discussing the professor's latest research direction, rely on current search results.
+- Do not fabricate facts such as "having read one of their papers" unless that has actually been verified in this round.

@@ -3,61 +3,61 @@ name: school-select
 description: Use when the user asks for school recommendations, program selection, PhD program discovery, MRes program comparison, or university comparison. Based on the application profile, budget, region, and timeline, identify and compare research programs and return reach, match, and safety recommendations.
 ---
 
-# 选校建议
+# School Selection Advice
 
-## 前置检查
+## Preconditions
 
-- 先读取 `../../memory.md`。
-- 如果没有申请画像，优先建议先分析 CV，再做更可信的选校。
+- Read `../../memory.md` first.
+- If there is no application profile yet, prioritize suggesting CV analysis first, then do more credible school selection.
 
-## 语言规则
+## Language Rules
 
-- 支持 `zh`、`en`、`bilingual` 三种输出模式。
-- 若用户明确指定输出语言，优先遵循当前请求。
-- 否则读取 `memory.md` 中的 `preferred_language`。
-- 若仍无法判断，则跟随用户当前对话语言。
-- 项目名称、院系名称、官方要求等专有名词可保留原文，但解释与比较结论应遵循选定语言。
+- Support three output modes: `zh`, `en`, and `bilingual`.
+- If the user explicitly specifies the output language, prioritize the current request.
+- Otherwise read `preferred_language` from `memory.md`.
+- If it is still unclear, follow the user's current conversation language.
+- Proper nouns such as program names, department names, and official requirements may remain in the original language, but explanations and comparison conclusions should follow the selected language.
 
-## 先补足决策变量
+## Fill In the Decision Variables First
 
-若用户没说清楚，补齐：
-- 目标国家 / 地区
-- 学位类型
-- 预算 / funding 要求
-- 排名偏好
-- 入学时间或申请周期
-- 研究方向
+If the user has not stated things clearly, fill in:
+- target country / region
+- degree type
+- budget / funding requirements
+- ranking preference
+- enrollment time or application cycle
+- research direction
 
-## 检索策略
+## Search Strategy
 
-1. 优先查官方项目页面，确认：
-   - 项目名称
+1. Prioritize checking official program pages to confirm:
+   - program name
    - admission requirements
    - funding / scholarship
    - deadline
-2. 若用户在意排名，再额外查对应排名来源。
-3. 结合 `memory.md` 的背景做三档分层：
+2. If the user cares about rankings, then additionally check the corresponding ranking source.
+3. Combine the user's background in `memory.md` to build three tiers:
    - `Reach`
    - `Match`
    - `Safety`
 
-## 输出要求
+## Output Requirements
 
-- 先给比较表：
-  - 学校
-  - 项目
-  - 档位
+- First provide a comparison table:
+  - school
+  - program
+  - tier
   - deadline
   - funding
   - fit score
-- 再给每个项目的详细说明：
-  - 地点
-  - 关键要求
-  - 与用户背景的匹配判断
-  - 值得联系的 faculty 方向
+- Then provide detailed notes for each program:
+  - location
+  - key requirements
+  - fit judgment against the user's background
+  - faculty directions worth contacting
 
-## 约束
+## Constraints
 
-- 申请截止日期必须以具体日期表达，避免只说“今年冬季”这类模糊时间。
-- 如果学校要求或 funding 信息查不到，要明确写成“待核实”。
-- 这是高成本决策类建议，优先依赖当前检索结果，而不是记忆。
+- Application deadlines must be expressed as concrete dates; avoid vague expressions such as "this winter".
+- If school requirements or funding information cannot be found, clearly write "to be verified".
+- This is a high-cost decision category of advice, so prioritize current search results rather than memory.

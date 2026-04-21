@@ -3,70 +3,70 @@ name: document-assist
 description: Use when the user asks to draft or revise an SOP, personal statement, motivation letter, research proposal, recommendation-letter draft, or similar application document. Based on the shared application profile and user materials, generate research application documents.
 ---
 
-# 申请文书辅助
+# Application Document Assistance
 
-## 前置检查
+## Preconditions
 
-- 先读取 `../../memory.md`。
-- 若申请画像缺失，先提示用户运行 `cv-analyze`，或在本轮直接补齐必要背景后继续。
+- Read `../../memory.md` first.
+- If the application profile is missing, first suggest that the user run `cv-analyze`, or fill in the necessary background directly in this round before continuing.
 
-## 语言规则
+## Language Rules
 
-- 支持 `zh`、`en`、`bilingual` 三种输出模式。
-- 若用户明确指定文书语言，优先遵循当前请求。
-- 否则读取 `memory.md` 中的 `preferred_language`。
-- 若仍无法判断，则优先使用目标项目官方常用语言。
-- 若用户要求 bilingual，默认给出一个主稿语言版本，并附一份缩略对照版或提纲，不要把整篇文书逐段重复。
+- Support three output modes: `zh`, `en`, and `bilingual`.
+- If the user explicitly specifies the document language, prioritize the current request.
+- Otherwise read `preferred_language` from `memory.md`.
+- If it is still unclear, prioritize the official commonly used language of the target program.
+- If the user requests bilingual output, default to one main draft language version plus one shortened counterpart version or outline, rather than repeating the entire document paragraph by paragraph.
 
-## 可选联动：Life Science Research
+## Optional Linkage: Life Science Research
 
-- 如果用户申请方向明显属于 life sciences / biomedical research，并且文书需要真实研究背景支撑，可先联动 `life-science-research` 再起草。
-- 特别适合以下文书任务：
+- If the user's application direction clearly falls under life sciences / biomedical research, and the document needs real research background support, `life-science-research` can be linked first before drafting.
+- This is especially suitable for the following document tasks:
   - `research-proposal`
-  - 需要写清 `research fit`
-  - 需要写 future directions、problem significance、dataset / pathway / target context
-- 联动结果可用于：
-  - 补 research background
-  - 提炼更具体的 research question
-  - 组织 literature / dataset / target / disease context
-  - 避免文书只停留在空泛兴趣表述
-- 如果当前任务只是语言润色、压字数、改语气、改结构，且用户已经给了完整内容，则不要触发该联动。
+  - cases where `research fit` needs to be written clearly
+  - cases that require future directions, problem significance, or dataset / pathway / target context
+- The linkage result can be used to:
+  - supplement research background
+  - refine a more specific research question
+  - organize literature / dataset / target / disease context
+  - avoid documents that stay at the level of vague interest statements
+- If the current task is only language polishing, word-count reduction, tone adjustment, or structure adjustment, and the user has already provided complete content, do not trigger that linkage.
 
-## 识别文书类型
+## Identify the Document Type
 
-若用户未说明，默认按 `sop` 处理。支持：
+If the user does not specify it, default to `sop`. Supported types:
 - `sop`
 - `motivation`
 - `research-proposal`
 - `recommendation-draft`
 
-## 材料收集
+## Material Collection
 
-文书类任务不要直接开写，先补足最少材料：
-- 目标项目与学校
-- 目标导师 / 课题组（若有）
-- 必须写入的经历
-- 申请动机
-- 毕业后的短期 / 长期目标
-- 字数或格式要求
+For document tasks, do not start writing immediately; first fill in the minimum required materials:
+- target program and school
+- target professor / lab group, if any
+- experiences that must be included
+- application motivation
+- short-term / long-term goals after graduation
+- word-count or formatting requirements
 
-## 执行流程
+## Workflow
 
-1. 从 `memory.md` 提取可复用背景。
-2. 先给一个简短提纲。
-3. 再输出完整初稿。
-4. 如果用户有硬性限制，例如字数、题目、段落数，就严格按限制收敛。
+1. Extract reusable background from `memory.md`.
+2. Provide a short outline first.
+3. Then output the full first draft.
+4. If the user has hard constraints, such as word count, prompt title, or paragraph count, strictly narrow the output to those limits.
 
-## 文书规则
+## Document Rules
 
-- 不编造经历、论文、奖项或动机。
-- 语言风格以真实、具体、可验证为先。
-- `research-proposal` 要明确研究问题、方法、预期贡献和风险。
-- `recommendation-draft` 必须用推荐人视角写。
+- Do not fabricate experiences, papers, awards, or motivations.
+- Prioritize a style that is real, specific, and verifiable.
+- A `research-proposal` must clearly define the research question, method, expected contribution, and risks.
+- A `recommendation-draft` must be written from the recommender's perspective.
 
-## 输出要求
+## Output Requirements
 
-- 默认包含：
-  - 提纲
-  - 完整草稿
-  - 2 到 4 个可继续强化的点
+- By default include:
+  - an outline
+  - a full draft
+  - 2 to 4 points that can be further strengthened

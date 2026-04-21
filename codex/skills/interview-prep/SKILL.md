@@ -3,54 +3,54 @@ name: interview-prep
 description: Use when the user asks to prepare for an interview, run a mock interview, practice interview questions, or get ready for a graduate application interview. Generate question sets, simulate Q&A, and provide feedback around the target supervisor, program, and the user's own experience.
 ---
 
-# 面试准备
+# Interview Preparation
 
-## 前置检查
+## Preconditions
 
-- 先读取 `../../memory.md`。
-- 若申请画像缺失，先提示用户运行 `cv-analyze`，因为问题设计需要依赖用户经历。
+- Read `../../memory.md` first.
+- If the application profile is missing, first suggest that the user run `cv-analyze`, because question design depends on the user's experience.
 
-## 语言规则
+## Language Rules
 
-- 支持 `zh`、`en`、`bilingual` 三种输出模式。
-- 若用户明确指定面试语言，优先遵循当前请求。
-- 否则读取 `memory.md` 中的 `preferred_language`。
-- 若仍无法判断，则优先按照目标项目或导师最可能使用的面试语言准备。
-- 若用户要求 bilingual，默认题目按目标面试语言输出，并补充中文或英文答题提示，而不是双语重复整套题库。
+- Support three output modes: `zh`, `en`, and `bilingual`.
+- If the user explicitly specifies the interview language, prioritize the current request.
+- Otherwise read `preferred_language` from `memory.md`.
+- If it is still unclear, prioritize preparing in the interview language most likely used by the target program or professor.
+- If the user requests bilingual output, default to outputting questions in the target interview language and supplementing them with Chinese or English answering tips, rather than bilingually repeating the entire question set.
 
-## 先明确面试对象
+## Clarify the Interview Target First
 
-若缺失则补问：
-- 教授姓名
-- 学校 / 项目
-- 面试语言
-- 更想练习完整 mock，还是只要题库和参考答案
+If any of the following is missing, ask follow-up questions:
+- professor name
+- school / program
+- interview language
+- whether they would rather practice a full mock interview or only want a question bank and reference answers
 
-## 准备流程
+## Preparation Workflow
 
-1. 检索目标导师和项目：
-   - 导师主页与近年工作
-   - 项目面试形式或公开经验
-2. 结合用户背景生成问题集，至少覆盖：
-   - 研究背景
-   - 技术深挖
-   - 动机与长期目标
-   - 行为类
-   - 项目深挖
-3. 如果用户要 mock interview：
-   - 一次只出一道题
-   - 等用户回答后再点评
+1. Search the target professor and program:
+   - professor homepage and recent work
+   - interview format of the program or public experience reports
+2. Generate a question set based on the user's background, covering at least:
+   - research background
+   - technical deep-dive
+   - motivation and long-term goals
+   - behavioral questions
+   - project deep-dive
+3. If the user wants a mock interview:
+   - give only one question at a time
+   - wait for the user's answer before commenting
 
-## 输出要求
+## Output Requirements
 
-- 若用户只要题库：
-  - 给分类题目
-  - 给每类答题建议
-- 若用户要模拟：
-  - 逐题推进
-  - 每题反馈包含优点、问题、优化方向
+- If the user only wants a question bank:
+  - provide categorized questions
+  - provide answering advice for each category
+- If the user wants a simulation:
+  - proceed one question at a time
+  - each round of feedback should include strengths, problems, and optimization direction
 
-## 约束
+## Constraints
 
-- 导师研究与项目流程优先看当前公开信息。
-- 不要把网上不确定的学生经验当成官方规则。
+- For professor research and program process, prioritize current public information.
+- Do not treat uncertain student experiences found online as official rules.
